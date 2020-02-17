@@ -7,9 +7,11 @@
         props: ['card', 'card_id'],
         methods: {
             showModal() {
-                $('#deleteModal').find('.modal-body').text(
+                var modal = $('#deleteModal');
+                modal.find('.modal-body').text(
                     'Are you sure you wish to delete card ' + this.card_id + '?'
-                ).find('form').prop('action', '/card/' + this.card);
+                );
+                modal.find('form').prop('action', '/card/' + this.card);
             }
         }
     }
