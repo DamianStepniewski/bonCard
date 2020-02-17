@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CardController@index')->name('index');
+Route::get('/card/create', 'CardController@create')->name('create');
+Route::post('/card/store', 'CardController@store')->name('store');
+Route::get('/card/{id}/edit', 'CardController@edit')->name('edit');

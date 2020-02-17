@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
 {
-    protected $fillable = ['id', 'pin', 'activation_date', 'expiration_date', 'balance'];
+    protected $fillable = ['card_id', 'pin', 'activation_date', 'expiration_date', 'balance'];
 }

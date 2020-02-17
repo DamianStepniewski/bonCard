@@ -14,7 +14,8 @@ class CreateCardsTable extends Migration
     public function up()
     {
         Schema::create('cards', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->unique();
+            $table->bigIncrements('id');
+            $table->string('card_id', 20)->unique();
             $table->smallInteger('pin');
             $table->date('activation_date');
             $table->date('expiration_date');
