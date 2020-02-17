@@ -30,7 +30,7 @@
                             <td>{{ $card->activation_date }}</td>
                             <td>{{ $card->expiration_date }}</td>
                             <td>{{ \App\Helpers\Formatter::formatCurrency($card->balance, 'zł', ',') }}</td>
-                            <td><a href="{{ route('edit', $card)}}" class="pr-3">Edit</a> <a href="#">Delete</a></td>
+                            <td><a href="{{ route('edit', $card)}}" class="pr-3">Edit</a> <delete-card card="{{ $card->id }}" card_id="{{ $card->card_id }}"></delete-card></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -39,6 +39,28 @@
             <div class="card-footer">
                 <div class="d-flex justify-content-center">
                     {{ $cards->links() }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete card</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <form method="POST" action="">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                 </div>
             </div>
         </div>

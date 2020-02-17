@@ -16,3 +16,4 @@ Route::get('/card/create', 'CardController@create')->name('create');
 Route::post('/card/store', 'CardController@store')->name('store');
 Route::get('/card/{card}/edit', 'CardController@edit')->name('edit');
 Route::put('/card/{card}', 'CardController@update')->name('update');
+Route::delete('/card/{card}', 'CardController@destroy');

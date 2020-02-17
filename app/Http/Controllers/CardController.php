@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Card;
-use Illuminate\Http\Request;
 
 class CardController extends Controller
 {
@@ -94,11 +93,14 @@ class CardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Card  $card
-     * @return \Illuminate\Http\Response
+     * @param \App\Card $card
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Exception
      */
     public function destroy(Card $card)
     {
+        $card->delete();
 
+        return redirect(route('index'));
     }
 }
