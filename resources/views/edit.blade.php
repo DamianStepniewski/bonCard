@@ -18,6 +18,11 @@
                             <button type="submit" class="btn btn-primary">
                                 Save changes
                             </button>
+                            <a href="{{ route('index') }}">
+                                <button type="button" class="btn btn-secondary">
+                                    Back
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </form>

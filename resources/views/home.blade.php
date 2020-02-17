@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header">
                 <span>Cards</span>
-                <a href="{{ route('create') }}" class="float-right">Add card</a>
+                <a href="{{ route('create') }}" class="float-right"><i class="fas fa-plus"></i> Add card</a>
             </div>
             <div class="card-body">
                 <table class="table">
@@ -30,7 +30,7 @@
                             <td>{{ $card->activation_date }}</td>
                             <td>{{ $card->expiration_date }}</td>
                             <td>{{ \App\Helpers\Formatter::formatCurrency($card->balance, 'zł', ',') }}</td>
-                            <td><a href="{{ route('edit', $card)}}" class="pr-3">Edit</a> <delete-card card="{{ $card->id }}" card_id="{{ $card->card_id }}"></delete-card></td>
+                            <td><a href="{{ route('edit', $card)}}" class="pr-3"><i class="fas fa-edit" title="Edit"></i></a> <delete-card card="{{ $card->id }}" card_id="{{ $card->card_id }}"></delete-card></td>
                         </tr>
                     @endforeach
                     </tbody>

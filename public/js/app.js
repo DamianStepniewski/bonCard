@@ -37294,18 +37294,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "a",
-    {
-      attrs: {
-        href: "#",
-        "data-toggle": "modal",
-        "data-target": "#deleteModal"
-      },
-      on: { click: _vm.showModal }
+  return _c("i", {
+    staticClass: "fas fa-trash-alt pointer text-danger",
+    attrs: {
+      title: "Delete",
+      "data-toggle": "modal",
+      "data-target": "#deleteModal"
     },
-    [_vm._v("Delete")]
-  )
+    on: { click: _vm.showModal }
+  })
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -15,6 +15,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div id="app">

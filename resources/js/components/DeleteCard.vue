@@ -1,5 +1,5 @@
 <template>
-    <a href="#" @click="showModal" data-toggle="modal" data-target="#deleteModal">Delete</a>
+    <i class="fas fa-trash-alt pointer text-danger" title="Delete" @click="showModal" data-toggle="modal" data-target="#deleteModal"></i>
 </template>
 
 <script>
