@@ -14,4 +14,5 @@
 Route::get('/', 'CardController@index')->name('index');
 Route::get('/card/create', 'CardController@create')->name('create');
 Route::post('/card/store', 'CardController@store')->name('store');
-Route::get('/card/{id}/edit', 'CardController@edit')->name('edit');
+Route::get('/card/{card}/edit', 'CardController@edit')->name('edit');
+Route::put('/card/{card}', 'CardController@update')->name('update');

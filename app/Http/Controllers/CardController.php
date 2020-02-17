@@ -53,26 +53,42 @@ class CardController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified card.
      *
      * @param  \App\Card  $card
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Card $card)
     {
-        //
+        return view('edit', compact('card'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Card  $card
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Card $card)
+    public function update(Card $card)
     {
-        //
+        // Take into account comma decimal separator and replace it with a period
+        request()->merge(['balance' => preg_replace('/,/', '.', request('balance'))]);
+
+        $data = request()->validate([
+            'card_id' => [
+                'required',
+                'unique:cards,card_id,' . $card->id,
+                'digits:20'
+            ],
+            'pin' => 'required|digits:4',
+            'activation_date' => 'required|date',
+            'expiration_date' => 'required|date|after:activation_date',
+            'balance' => 'required:numeric'
+        ]);
+
+        $card->update($data);
+
+        return redirect(route('index'));
     }
 
     /**
@@ -83,6 +99,6 @@ class CardController extends Controller
      */
     public function destroy(Card $card)
     {
-        //
+
     }
 }

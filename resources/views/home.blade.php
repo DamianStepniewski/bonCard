@@ -30,14 +30,16 @@
                             <td>{{ $card->activation_date }}</td>
                             <td>{{ $card->expiration_date }}</td>
                             <td>{{ \App\Helpers\Formatter::formatCurrency($card->balance, 'zł', ',') }}</td>
-                            <td><a href="{{ route('edit', ['id' => $card->id]) }}" class="pr-3">Edit</a> <a href="#">Delete</a></td>
+                            <td><a href="{{ route('edit', $card)}}" class="pr-3">Edit</a> <a href="#">Delete</a></td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                {{ $cards->links() }}
+                <div class="d-flex justify-content-center">
+                    {{ $cards->links() }}
+                </div>
             </div>
         </div>
     </div>

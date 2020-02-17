@@ -16,7 +16,7 @@ class CreateCardsTable extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('card_id', 20)->unique();
-            $table->smallInteger('pin');
+            $table->string('pin', 4);
             $table->date('activation_date');
             $table->date('expiration_date');
             $table->float('balance');
