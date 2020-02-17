@@ -63,7 +63,7 @@ class CardController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified card in storage.
      *
      * @param  \App\Card  $card
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -76,7 +76,7 @@ class CardController extends Controller
         $data = request()->validate([
             'card_id' => [
                 'required',
-                'unique:cards,card_id,' . $card->id,
+                'unique:cards,card_id,' . $card->id, // Compare card_id only with cards other than the current one
                 'digits:20'
             ],
             'pin' => 'required|digits:4',
@@ -91,7 +91,7 @@ class CardController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified card from storage.
      *
      * @param \App\Card $card
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector

@@ -9,8 +9,7 @@
             showModal() {
                 $('#deleteModal').find('.modal-body').text(
                     'Are you sure you wish to delete card ' + this.card_id + '?'
-                );
-                $('#deleteModal').find('form').prop('action', '/card/' + this.card);
+                ).find('form').prop('action', '/card/' + this.card);
             }
         }
     }
