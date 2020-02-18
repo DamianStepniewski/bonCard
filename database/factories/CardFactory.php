@@ -2,9 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Card;
 use Faker\Generator as Faker;
-use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +16,12 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Card::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        'card_id' => implode('', $faker->unique()->randomElements([1,2,3,4,5,6,7,8,9,0], 20, true)),
+        'pin' => implode('', $faker->randomElements([1,2,3,4,5,6,7,8,9,0], 4, true)),
+        'activation_date' => $faker->dateTimeThisYear(),
+        'expiration_date' => $faker->dateTimeThisYear()->add(new DateInterval('P1Y')),
+        'balance' => $faker->randomFloat(2, 0, 10000)
     ];
 });

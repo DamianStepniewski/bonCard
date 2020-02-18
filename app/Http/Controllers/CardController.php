@@ -42,7 +42,7 @@ class CardController extends Controller
             'pin' => 'required|digits:4',
             'activation_date' => 'required|date',
             'expiration_date' => 'required|date|after:activation_date',
-            'balance' => 'required:numeric'
+            'balance' => 'required|numeric'
         ]);
 
         $card = new Card($data);
@@ -82,7 +82,7 @@ class CardController extends Controller
             'pin' => 'required|digits:4',
             'activation_date' => 'required|date',
             'expiration_date' => 'required|date|after:activation_date',
-            'balance' => 'required:numeric'
+            'balance' => 'required|numeric'
         ]);
 
         $card->update($data);
